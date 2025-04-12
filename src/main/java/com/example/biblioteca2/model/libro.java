@@ -9,9 +9,9 @@ import lombok.Data;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class libro {
+public class Libro {
     private int id;
-    private String iString;
+    private String isbn;
     private String titulo;
     private String editorial;
     private int fechaPublicacion;
