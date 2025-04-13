@@ -63,7 +63,11 @@ public class libroRepository {
 
     }
 
+    public void eliminar(int id) {
+        Libro libro = buscarLibroPorId(id);
+        if (libro != null) listaLibros.remove(libro);
 
+    }
 
 
 
