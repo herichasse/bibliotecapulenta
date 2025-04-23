@@ -7,11 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+
+
 
 
 @RestController
@@ -38,6 +45,32 @@ public class LibroController {
          return libroService.buscarLibroPorIsbn(isbn);
      }
      
+     @GetMapping("/autor/{autor}")
+    public Libro buscarLibroPorAutor(@PathVariable String autor) {
+         return libroService.buscarLibroPorAutor(autor);
+    }
+
+    @PostMapping
+    public Libro guardarLibro(@RequestBody Libro libro) {    
+        return libroService.guardarLibro(libro);
+    }
+
+    @PutMapping("{id}")
+    public Libro actualizarLibro(@PathVariable int id, @RequestBody Libro libro) {
+        return libroService.actualizarLibro(libro);
+    }
+
+    @DeleteMapping
+    public String eliminarLibro(@PathVariable int id){
+        return libroService.eliminarLibro(id);
+    }
+
+
+
+
+
+
+
 
 
 }
